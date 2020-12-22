@@ -44,7 +44,7 @@ class PostController extends Controller
         $post = new Post;
         $post->content = $request->input('content');
         $post->subject_id = 0;
-        $post->user_id = 1;
+        $post->user_id = Auth::id();
         $post->save();
 
         return redirect(route('posts.index'));

@@ -39,6 +39,18 @@ Route::get('/test', function(){
     return App\Models\Post::all();
 });
 
+Route::get('/test', function(){
+
+    var_dump(Auth::check());
+
+});
+
+Route::get('/test', function(){
+
+    echo Auth::user();
+
+});
+
 Route::get('/edit', function(){
     $post = App\Models\Post::find(1);
     $post->content = 'Laravel demo';
@@ -93,3 +105,9 @@ Route::get('/add1', function(){
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::resource('posts', 'App\Http\Controllers\PostController');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
